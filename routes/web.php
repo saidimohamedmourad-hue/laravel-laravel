@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\indexcontroller;
 use App\Http\Controllers\jobcontroller;
 use App\Http\Controllers\PostController;
@@ -12,7 +13,8 @@ Route::get('/contact', [Indexcontroller::class,"contact"]);
 route::get('job',[Jobcontroller::class,'index']);
 
 route::get('/blog',[PostController::class,'index']);
-
 route::get('/blog/create',[ PostController::class,'create']);
-
 route::get('/blog/{id}',[PostController::class,'show']);
+
+route::get('/comments',[CommentController::class,'index']);
+route::get('/comments/create',[CommentController::class,'create']);
