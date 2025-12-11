@@ -22,7 +22,7 @@ class CommentController extends Controller
             
             'author' => 'mohamed',
             'content'=>'this is a nother comment',
-            'post_id'=> 6
+            'post_id'=> 1
 
 
         ]);
