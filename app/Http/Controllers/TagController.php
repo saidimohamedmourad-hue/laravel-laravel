@@ -26,25 +26,25 @@ class TagController extends Controller
     }
     
     function testManyToMany (){
-    //     $post11 = post::find(11);
-    //     $post13 = post::find(13);
+    //     $post11 = post::find(7);
+    //     $post13 = post::find(5);
 
-    //     $post11->tags()->attach([1,2]);
-    //       $post13->tags()->attach([1,3]);
+    //     $post11->tags()->attach([3,4]);
+    //       $post13->tags()->attach([4,2]);
 
     //         return response()->json(([
-    //     'poste11'=>$post11->tags,
-    //     'poste13'=>$post13->tags
+    //     'post11'=>$post11->tags,
+    //     'post13'=>$post13->tags
     // ]));
-    // }
+  //  }
     $tag = Tag::find( 1);
 
-  $tag->posts()->attach([11]);
+   $tag->posts()->attach([5]);
 
-  return response()->json(([
-    'tag' => $tag->title,
-    'posts' => $tag->posts
-  ]));
+   return response()->json(([
+     'tag' => $tag->title,
+     'posts' => $tag->posts
+      ]));
     }
   
-}
+  }
