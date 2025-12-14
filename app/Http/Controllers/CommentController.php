@@ -18,14 +18,15 @@ class CommentController extends Controller
 
 
     function create(){
-        Comment::create([
+        // Comment::create([
             
-            'author' => 'mohamed',
-            'content'=>'this is a nother comment',
-            'post_id'=> 2
+        //     'author' => 'mohamed',
+        //     'content'=>'this is a nother comment',
+        //     'post_id'=> 2
 
+        // ]);
+         Comment::factory(5)->create();
 
-        ]);
         return redirect('/comments');
     }
 }

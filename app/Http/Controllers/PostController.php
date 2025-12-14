@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     function index(){
         // elequant ORM -> get all data
-        $data = Post::all();
+        $data = Post::cursorPaginate(10);
         // pass the data to the view
         return view('post.index', ['posts'=> $data,'pagetitle' => 'blog']);
 
@@ -27,13 +27,16 @@ class PostController extends Controller
 
 
     function create(){
-        $post=Post::create([
-            'title' => 'My first post',
-            'body' => 'my find unique post',
-            'author'=> 'mohamed',
-            'published'=> true,
+        // // $post=Post::create([
+        // //     'title' => 'My first post',
+        // //     'body' => 'my find unique post',
+        // //     'author'=> 'mohamed',
+        // //     'published'=> true,
 
-        ]);
+        // ]);
+
+        post::factory(100)->create();
+
         return redirect('/blog');
     }
     
