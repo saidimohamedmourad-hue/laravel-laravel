@@ -2,46 +2,71 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
 
 class PostController extends Controller
 {
-    function index(){
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
         // elequant ORM -> get all data
-        $data = Post::cursorPaginate(10);
+        $data = post::cursorPaginate(10);
         // pass the data to the view
         return view('post.index', ['posts'=> $data,'pagetitle' => 'blog']);
-
     }
 
-    function show($id){
-        $post = Post::findOrFail($id);
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('post.create',['pagetitle'=>'blog create new post']);
+    }
 
-        // hondle nulle -> message
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //to do will be completed in the form section 
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+         $post = Post::find($id);
+         // hondle nulle -> message
         
 
         return view('post.show',['post' => $post,'pagetitle' => $post->title]);
     }
 
-
-    function create(){
-        // // $post=Post::create([
-        // //     'title' => 'My first post',
-        // //     'body' => 'my find unique post',
-        // //     'author'=> 'mohamed',
-        // //     'published'=> true,
-
-        // ]);
-
-        post::factory(100)->create();
-
-        return redirect('/blog');
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        return view('post.edit',['pagetitle'=>'blog edit post']);
     }
-    
 
-    function delete(){
-        post::destroy(1);
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //to do complete in forme section
     }
 }
