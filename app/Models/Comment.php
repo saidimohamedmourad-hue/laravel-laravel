@@ -20,11 +20,11 @@ class Comment extends Model
 
     public $incrementing = false;
     
-     protected $table = 'Comment';
+     protected $table = 'comment';
     
     protected $fillable =['author','content','post_id']; //fieled that ca be updated
 
-    protected $guarde =['id'] ;  // cannot be upfsted/assigned (readonly)
+    protected $guarded =['id'] ;  // cannot be upfsted/assigned (readonly)
     
 
 

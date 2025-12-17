@@ -19,11 +19,11 @@ class Tag extends Model
 
     public $incrementing = false;
     
-    protected $table = 'Tag';
+    protected $table = 'tag';
     //hasFactory;
     protected $fillable =['title']; //fieled that ca be updated
 
-    protected $guarde =['id'] ;  // cannot be upfsted/assigned (readonly)
+    protected $guarded =['id'] ;  // cannot be upfsted/assigned (readonly)
     
     public function posts(){
         return $this->belongsToMany(post::class);

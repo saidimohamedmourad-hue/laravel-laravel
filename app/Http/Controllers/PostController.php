@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BlogPostRequest;
 use App\Models\post;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class PostController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   
         // elequant ORM -> get all data
         $data = post::cursorPaginate(10);
         // pass the data to the view
@@ -23,14 +24,24 @@ class PostController extends Controller
      */
     public function create()
     {
+    
         return view('post.create',['pagetitle'=>'blog create new post']);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
+    public function store(BlogPostRequest $request)                  
+    {   
+        $post = new Post();
+        $post->title = $request->input('title');
+        $post->author = $request->input('author');
+        $post->body = $request->input('body');
+        $post->published = $request->has('published');
+
+        $post->save();
+        //do the operation
+        return redirect('/blog')->with('success','post created succescefully ');
         //to do will be completed in the form section 
     }
 

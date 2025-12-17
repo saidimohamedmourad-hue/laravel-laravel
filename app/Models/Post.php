@@ -16,11 +16,11 @@ class post extends Model
 
     public $incrementing = false;
 
-    protected $table = 'Post';
+    protected $table = 'post';
     //hasFactory;
     protected $fillable =['title','body','author','published']; //fieled that ca be updated
 
-    protected $guarde =['id'] ;  // cannot be upfsted/assigned (readonly)
+    protected $guarded =['id'] ;  // cannot be upfsted/assigned (readonly)
     
     public function Comments(){
         return $this->hasMany(Comment::class);
