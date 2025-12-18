@@ -17,6 +17,11 @@ Route::get('/contact', ContactController::class);
 route::get('job',[Jobcontroller::class,'index']);
 
 route::resource('/blog',PostController::class);
+//protected rout loging compte
+//route::middleware('auth')->groupe(function(){
+    //route::resource('/blog',PostController::class);
+//});  //midlwar sur post default bild in 
+route::resource('/blog',PostController::class);
 // route::get('/blog',[PostController::class,'index']);
 // route::post('/blog/create',[ PostController::class,'create']);
 // route::delete('/blog/{id}',[ PostController::class,'delete']);

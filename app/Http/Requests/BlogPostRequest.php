@@ -17,8 +17,9 @@ class BlogPostRequest extends FormRequest
     {
         return [
             "title"=> "required",
-            "body"=> "reqired",
-            "author"=> "required"
+         
+            "author"=> "required",
+            // "body"=> "reqired"
         ];
     }
 
@@ -26,7 +27,7 @@ class BlogPostRequest extends FormRequest
         return[
         'title.required' => 'mandatory fieled',
         'author.required' => 'mandatory fieled',
-        'body.required' => 'mandatory fieled'
+        //'body.required' => 'mandatory fieled'
         ];
 
     }
